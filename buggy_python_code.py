@@ -1,18 +1,6 @@
-"""module providing system functions"""
-
-import sys
-
-"""module providing os functions"""
-
-import os
-
-"""module providing yaml functionality"""
-
 import yaml
-
-"""module providing web application framework"""
-
 import flask
+import sys
 
 app = flask.Flask(__name__)
 
@@ -52,11 +40,13 @@ def load_yaml(filename):
     stream = open(filename)
     deserialized_data = yaml.load(stream, Loader=yaml.Loader) #deserializing data
     return deserialized_data
-    
+
+
 def authenticate(password):
     # Assert that the password is correct
     assert password == "Iloveyou", "Invalid password!"
     print("Successfully authenticated!")
+
 
 if __name__ == '__main__':
     print("Vulnerabilities:")
