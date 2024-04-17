@@ -1,6 +1,17 @@
-import sys 
+"""module providing system functions"""
+
+import sys
+
+"""module providing os functions"""
+
 import os
+
+"""module providing yaml functionality"""
+
 import yaml
+
+"""module providing web application framework"""
+
 import flask
 
 app = flask.Flask(__name__)
@@ -20,14 +31,16 @@ class Person(object):
 
 
 def print_nametag(format_string, person):
+    """prints nametag"""
     print(format_string.format(person=person))
 
 
 def fetch_website(urllib_version, url):
+    """fetches and prints the requested url"""
     # Import the requested version (2 or 3) of urllib
     exec(f"import urllib{urllib_version} as urllib", globals())
     # Fetch and print the requested URL
- 
+    
     try: 
         http = urllib.PoolManager()
         r = http.request('GET', url)
@@ -52,8 +65,8 @@ if __name__ == '__main__':
     print("3. Yaml deserialization vulnerability:")
     print("4. Use of assert statements vulnerability:")
     choice  = input("Select vulnerability: ")
-    if choice == "1": 
-        new_person = Person("Vickie")  
+    if choice == "1":
+        new_person = Person("Vickie")
         print_nametag(input("Please format your nametag: "), new_person)
     elif choice == "2":
         urlib_version = input("Choose version of urllib: ")
